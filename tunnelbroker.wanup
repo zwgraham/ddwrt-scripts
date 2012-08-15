@@ -1,7 +1,18 @@
+#!/bin/sh 
+#IPv6 .wanup script based on the dd-wrt wiki pages
+#This script initiates a sit tunnel with Hurricane Electric's
+#IPv6 tunnel service. It's purpose is to give your LAN connectivity
+#to the IPv6 Internet.
 
-insmod ipv6
-sleep 5
+insmod ipv6 #may be redundant...
+
+sleep 5     #originally a part of the script that ran on ifup
+
+#This line determines the IP address of the WAN interface
+#Your Device may be a different vlan number
 WANIP=$(ip -4 addr show dev vlan2 | awk '/inet / {print $2}' | cut -d/ -f1)
+
+#Change these variables
 SERVER_IPV4_ADDR="72.52.104.74"
 CLIENT_IPV6_ADDR="2001:470:1f04:18b3::2"
 ROUTED_64_ADDR="2001:470:1f05:18b3::"
