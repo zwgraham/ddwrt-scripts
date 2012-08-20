@@ -1,5 +1,7 @@
 Second cron script to heartbeat tunnelbroker.net service
     easy - 30 mins
 
-Config file read from /jffs/etc/
-    easy - 10 mins
+
+Complete
+
+DONE Config file read from /tmp/etc/
